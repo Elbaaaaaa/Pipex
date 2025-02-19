@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:08:03 by ebella            #+#    #+#             */
-/*   Updated: 2025/02/19 19:32:32 by ebella           ###   ########.fr       */
+/*   Updated: 2025/02/19 20:00:32 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,13 @@ void parsing(t_pipex *pipex, int argc, char **argv, char **envp)
         ft_putstr_fd("Error: Wrong number of arguments\n", 2);
         exit(1);
     }
+	if (access(argv[1], F_OK) == -1)
+	{
+		pipex->infile = open(argv[1], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+	}
     if (access(argv[4], F_OK) == -1)
     {
-        open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+        pipex->outfile = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
     }
 	if (access(argv[1], F_OK) == -1)
 	{

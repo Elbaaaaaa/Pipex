@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:13:13 by ebella            #+#    #+#             */
-/*   Updated: 2025/02/19 19:19:03 by ebella           ###   ########.fr       */
+/*   Updated: 2025/02/19 19:56:14 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_pipex
     int     fd[2];
     int     pid;
     int     status;
+	int		infile;
+	int		outfile;
 }   t_pipex;
 
 int     main(int argc, char **argv, char **envp);
